@@ -1,0 +1,57 @@
+
+{% extends 'shop/header.html'%}
+{% load static %}
+{% block title %}ARTMIX FRAME{% endblock %}
+{% block content %}
+
+
+<section class="main-section paddind" id="Portfolio">
+    <!--main-section-start-->
+    <div class="container">
+        <h2>Frame</h2>
+        <h6>Fresh portfolio of designs that will keep you wanting more.</h6>
+        <div class="portfolioFilter">
+            <ul class="Portfolio-nav wow fadeIn delay-02s">
+                <li><a href="#" data-filter="*" class="current">All</a></li>
+                <li><a href="#" data-filter=".branding"> Plastic</a></li>
+                <li><a href="#" data-filter=".webdesign"> Wood</a></li>
+                <li><a href="#" data-filter=".printdesign">Alumin</a></li>
+                <!-- <li><a href="#" data-filter=".photography">Photography</a></li> -->
+            </ul>
+        </div>
+
+    </div>
+    <div class="portfolioContainer wow fadeInUp delay-04s">
+        {% for frame in frames%}
+        {% if frame.confirm %}
+        {% if frame.type == 'Деревянный'%}
+        <div class="Portfolio-box webdesign">
+            <a href="#"><img src="/img/{{frame.img}}" alt="" style="max-height: 250px;"></a>
+            <h3>World articul: {{frame.articul}}</h3>
+            <p>Frame type: {{frame.type}}</p>
+        </div>
+        {% elif frame.type == "Пластиковый" %} 
+        <div class=" Portfolio-box branding">
+            <a href="#"><img src="/img/{{frame.img}}" alt=""style="max-height: 250px;"></a>
+            <h3>World articul: {{frame.articul}}</h3>
+            <p>Frame type: {{frame.type}}</p>
+        </div>
+
+        {% elif frame.type == "Алюминий"%}
+
+        <div class=" Portfolio-box printdesign">
+            <a href="#"><img src="/img/{{frame.img}}" alt="" style="max-height: 250px;"></a>
+            <h3>World articul: {{frame.articul}}</h3>
+            <p>Frame type: {{frame.type}}</p>
+        </div>
+
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+
+<div style="margin: 50px auto ;height: 50px; width: 90%;border-bottom: 2px solid silver; display: flex;"></div>
+
+
+{% endblock %}
